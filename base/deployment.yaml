@@ -40,14 +40,14 @@ spec:
           httpGet:
             port: 8000
             path: /hello/health-liveness
-          periodSeconds: 2
+          periodSeconds: 15
           failureThreshold: 3
         ### Probe to know when to send traffic to the container.
         readinessProbe:
           httpGet:
             port: 8000
             path: /hello/health-readiness
-          periodSeconds: 1
+          periodSeconds: 5
           failureThreshold: 1
         resources:
           requests:
