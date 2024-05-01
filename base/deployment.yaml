@@ -31,22 +31,22 @@ spec:
         ### Probe to allow container time to start before liveness probe takes over
         startupProbe:
           httpGet:
-            port: 8080
-            path: /metrics
+            port: 8000
+            path: /hello/health-startup
           periodSeconds: 1
           failureThreshold: 5
         ### Probe to restart a failed container
         livenessProbe:
           httpGet:
-            port: 8080
-            path: /metrics
+            port: 8000
+            path: /hello/health-liveness
           periodSeconds: 2
           failureThreshold: 3
         ### Probe to know when to send traffic to the container.
         readinessProbe:
           httpGet:
-            port: 8080
-            path: /metrics
+            port: 8000
+            path: /hello/health-readiness
           periodSeconds: 1
           failureThreshold: 1
         resources:
